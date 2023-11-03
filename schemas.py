@@ -22,3 +22,11 @@ class SingUpModel(BaseModel):
                 "id": 0
             }
         }
+
+
+
+
+class LoginModel(BaseModel):
+    username: str
+    password: str
+
