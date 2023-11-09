@@ -24,9 +24,25 @@ class SingUpModel(BaseModel):
         }
 
 
-
-
 class LoginModel(BaseModel):
     username: str
     password: str
 
+
+class OrderModel(BaseModel):
+    id: Optional[int]
+    quantity: int
+    order_status: Optional[str] = "PENDING"
+    pizza_sizes: Optional[str] = "SMALL"
+    user_id: Optional[int]
+
+    class Config:
+        from_attributes = True
+        json_schema_extra = {
+            "example": {
+                "quantity": 2,
+                "pizza_sizes": "LARGE",
+                "user_id": 0,
+                "id": 0
+            }
+        }
